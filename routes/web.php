@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 //USER RUTE
 Route::middleware('auth')->group(function () {
@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
 
 //ADMIN RUTE
 Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->name('admin.')->group(function () {
+
+    Route::view('/', 'admin.welcome')->name('home');
 
 });
 
