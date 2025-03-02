@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminCheckMiddleware;
@@ -38,6 +39,8 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
     Route::post('/product/save', [AdminProductController::class, 'save'])->name('product.save');
 
 
+    Route::view('/category/crate', 'admin.categories.create')->name('category.create');
+    Route::post('/category/save', [AdminCategoryController::class, 'save'])->name('category.save');
 });
 
 
