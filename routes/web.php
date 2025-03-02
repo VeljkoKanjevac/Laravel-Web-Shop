@@ -41,6 +41,8 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
         Route::get('/create', 'create')->name('create');
 
         Route::get('/all', 'allProducts')->name('all');
+
+        Route::get('delete/{product}', 'deleteProduct')->name('delete');
     });
 
     Route::view('/category/crate', 'admin.categories.create')->name('category.create');
@@ -49,6 +51,7 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
 
     Route::get('/user/all', [AdminUserController::class, 'allUsers'])->name('user.all');
     Route::get('/user/delete/{user}', [AdminUserController::class, 'deleteUser'])->name('user.delete');
+
 });
 
 

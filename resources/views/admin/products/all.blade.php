@@ -12,6 +12,7 @@
             <th scope="col">STOCK</th>
             <th scope="col">IMAGE</th>
             <th scope="col">CATEGORY</th>
+            <th scope="col">ACTIONS</th>
         </tr>
         </thead>
 
@@ -26,6 +27,9 @@
                 <td>{{$product->stock}}</td>
                 <td>{{$product->image}}</td>
                 <td>{{$category->name}}</td>
+                <td>
+                    <a class="btn btn-danger" href="{{ route('product.delete', ['product' => $product->id]) }}">DELETE</a>
+                </td>
             </tr>
         @endforeach
         </tbody>

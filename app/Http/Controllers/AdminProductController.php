@@ -36,4 +36,11 @@ class AdminProductController extends Controller
 
         return view('admin.products.all', compact('allProducts'));
     }
+
+    public function deleteProduct(Product $product)
+    {
+        $product->delete();
+
+        return redirect()->back();
+    }
 }
