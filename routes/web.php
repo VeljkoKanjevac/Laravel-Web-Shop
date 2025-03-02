@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Middleware\AdminCheckMiddleware;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +28,15 @@ Route::middleware('auth')->group(function () {
 
 
 //ADMIN RUTE
-Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->name('admin.')->group(function () {
+Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->group(function () {
 
-    Route::view('/', 'admin.welcome')->name('home');
+    Route::view('/', 'admin.welcome')->name('admin.home');
+    Route::get('/product/create', function (){
+        $categories = Category::all();
+        return view('admin.products.create', compact('categories'));
+    })->name('product.create');
+    Route::post('/product/save', [AdminProductController::class, 'save'])->name('product.save');
+
 
 });
 
