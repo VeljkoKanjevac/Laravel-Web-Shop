@@ -22,7 +22,7 @@
                         Products
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">All Products</a></li>
+                        <li><a class="dropdown-item" href="{{route('product.all')}}">All Products</a></li>
                         <li><a class="dropdown-item" href="{{route('product.create')}}">New Product</a></li>
                     </ul>
                 </li>

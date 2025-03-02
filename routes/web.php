@@ -35,10 +35,11 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
 
     Route::controller(AdminProductController::class)->prefix('/product')->name('product.')->group(function () {
 
-        Route::get('/create', 'create')->name('create');
-
         Route::post('/save', 'save')->name('save');
 
+        Route::get('/create', 'create')->name('create');
+
+        Route::get('/all', 'allProducts')->name('all');
     });
 
     Route::view('/category/crate', 'admin.categories.create')->name('category.create');

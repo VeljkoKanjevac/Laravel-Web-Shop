@@ -29,4 +29,11 @@ class AdminProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function allProducts()
+    {
+        $allProducts = Product::all();
+
+        return view('admin.products.all', compact('allProducts'));
+    }
 }
