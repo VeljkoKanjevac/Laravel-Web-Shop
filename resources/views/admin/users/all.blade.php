@@ -23,7 +23,7 @@
                 <td>{{$user->created_at}}</td>
                 <td>{{$user->updated_at}}</td>
                 <td>
-                    <a class="btn btn-danger">DELETE</a>
+                    <a class="btn btn-danger" href="{{ route('user.delete', ['user' => $user->id]) }}">DELETE</a>
                 </td>
             </tr>
         @endforeach

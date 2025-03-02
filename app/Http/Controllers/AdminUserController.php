@@ -13,4 +13,11 @@ class AdminUserController extends Controller
 
         return view('admin.users.all', compact('allUsers'));
     }
+
+    public function deleteUser(User $user)
+    {
+        $user->delete();
+
+        return redirect()->back();
+    }
 }

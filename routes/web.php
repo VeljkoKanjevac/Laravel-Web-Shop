@@ -48,6 +48,7 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
     Route::get('/category/all', [AdminCategoryController::class, 'allCategories'])->name('category.all');
 
     Route::get('/user/all', [AdminUserController::class, 'allUsers'])->name('user.all');
+    Route::get('/user/delete/{user}', [AdminUserController::class, 'deleteUser'])->name('user.delete');
 });
 
 
