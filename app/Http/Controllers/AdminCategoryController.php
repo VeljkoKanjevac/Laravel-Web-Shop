@@ -14,4 +14,11 @@ class AdminCategoryController extends Controller
 
         return redirect()->back();
     }
+
+    public function allCategories()
+    {
+        $categories = Category::all();
+
+        return view('admin.categories.all', compact('categories'));
+    }
 }

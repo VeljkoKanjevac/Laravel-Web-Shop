@@ -32,7 +32,7 @@
                         Categories
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">All Categories</a></li>
+                        <li><a class="dropdown-item" href="{{route('category.all')}}">All Categories</a></li>
                         <li><a class="dropdown-item" href="{{route('category.create')}}">New Category</a></li>
                     </ul>
                 </li>

@@ -44,6 +44,7 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
 
     Route::view('/category/crate', 'admin.categories.create')->name('category.create');
     Route::post('/category/save', [AdminCategoryController::class, 'save'])->name('category.save');
+    Route::get('/category/all', [AdminCategoryController::class, 'allCategories'])->name('category.all');
 });
 
 
