@@ -32,9 +32,14 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->group(function () {
 
     Route::view('/', 'admin.welcome')->name('admin.home');
-    Route::get('/product/create', [AdminProductController::class, 'create'])->name('product.create');
-    Route::post('/product/save', [AdminProductController::class, 'save'])->name('product.save');
 
+    Route::controller(AdminProductController::class)->prefix('/product')->name('product.')->group(function () {
+
+        Route::get('/create', 'create')->name('create');
+
+        Route::post('/save', 'save')->name('save');
+
+    });
 
     Route::view('/category/crate', 'admin.categories.create')->name('category.create');
     Route::post('/category/save', [AdminCategoryController::class, 'save'])->name('category.save');
