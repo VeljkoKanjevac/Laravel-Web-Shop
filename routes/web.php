@@ -36,25 +36,26 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
 
     Route::controller(AdminProductController::class)->prefix('/product')->name('product.')->group(function () {
 
-        Route::post('/save', 'save')->name('save');
-
         Route::get('/create', 'create')->name('create');
-
         Route::get('/all', 'allProducts')->name('all');
-
         Route::get('delete/{product}', 'deleteProduct')->name('delete');
-
         Route::get('/edit/{product}', 'editProduct')->name('edit');
-
-        Route:: post('/update/{product}', 'updateProduct')->name('update');
+        Route::post('/save', 'save')->name('save');
+        Route::post('/update/{product}', 'updateProduct')->name('update');
     });
 
-    Route::view('/category/crate', 'admin.categories.create')->name('category.create');
-    Route::post('/category/save', [AdminCategoryController::class, 'save'])->name('category.save');
-    Route::get('/category/all', [AdminCategoryController::class, 'allCategories'])->name('category.all');
+    Route::controller(AdminCategoryController::class)->prefix('/category')->name('category.')->group(function () {
 
-    Route::get('/user/all', [AdminUserController::class, 'allUsers'])->name('user.all');
-    Route::get('/user/delete/{user}', [AdminUserController::class, 'deleteUser'])->name('user.delete');
+        Route::get('/create', 'create')->name('create');
+        Route::get('/all', 'allCategories')->name('all');
+        Route::post('/save', 'save')->name('save');
+    });
+
+    Route::controller(AdminUserController::class)->prefix('/user')->name('user.')->group(function () {
+
+        Route::get('/all', 'allUsers')->name('all');
+        Route::get('/delete/{user}', 'deleteUser')->name('delete');
+    });
 
 });
 
