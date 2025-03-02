@@ -43,4 +43,18 @@ class AdminProductController extends Controller
 
         return redirect()->back();
     }
+
+    public function editProduct(Product $product)
+    {
+        $categories = Category::all();
+
+        return view('admin.products.edit', compact('product', 'categories'));
+    }
+
+    public function updateProduct(Product $product, AddProductRequest $request)
+    {
+        $this->productsRepo->update($product, $request);
+
+        return redirect()->route('product.all');
+    }
 }

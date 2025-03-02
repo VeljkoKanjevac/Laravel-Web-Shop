@@ -43,6 +43,10 @@ Route::middleware(['auth', AdminCheckMiddleware::class])->prefix('/admin')->grou
         Route::get('/all', 'allProducts')->name('all');
 
         Route::get('delete/{product}', 'deleteProduct')->name('delete');
+
+        Route::get('/edit/{product}', 'editProduct')->name('edit');
+
+        Route:: post('/update/{product}', 'updateProduct')->name('update');
     });
 
     Route::view('/category/crate', 'admin.categories.create')->name('category.create');

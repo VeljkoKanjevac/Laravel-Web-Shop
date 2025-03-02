@@ -18,7 +18,7 @@ class Product extends Model
         'category_id',
     ];
 
-    public function getCategoryById()
+    public function getCategory()
     {
         return $this->hasOne(Category::class, 'id', 'category_id');
     }

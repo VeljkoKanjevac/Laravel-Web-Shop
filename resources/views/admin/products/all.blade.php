@@ -18,7 +18,7 @@
 
         <tbody>
         @foreach($allProducts as $product)
-            @php $category = $product->getCategoryByid; @endphp
+            @php $category = $product->getCategory; @endphp
             <tr>
                 <td>{{$product->id}}</td>
                 <td>{{$product->name}}</td>
@@ -29,6 +29,9 @@
                 <td>{{$category->name}}</td>
                 <td>
                     <a class="btn btn-danger" href="{{ route('product.delete', ['product' => $product->id]) }}">DELETE</a>
+                </td>
+                <td>
+                    <a class="btn btn-primary" href="{{ route('product.edit', ['product' => $product->id]) }}">EDIT</a>
                 </td>
             </tr>
         @endforeach
