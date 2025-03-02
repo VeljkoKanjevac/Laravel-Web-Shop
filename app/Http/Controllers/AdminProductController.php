@@ -6,7 +6,6 @@ use App\Http\Requests\AddProductRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Repositories\ProductsRepository;
-use Illuminate\Http\Request;
 
 class AdminProductController extends Controller
 {
@@ -17,17 +16,18 @@ class AdminProductController extends Controller
         $this->productsRepo = new ProductsRepository();
     }
 
-    public function create()
-    {
-        $categories = Category::all();
-
-        return view('admin.products.create', compact('categories'));
-    }
     public function save(AddProductRequest $request)
     {
         Product::create($request->all());
 
         return redirect()->back();
+    }
+
+    public function create()
+    {
+        $categories = Category::all();
+
+        return view('admin.products.create', compact('categories'));
     }
 
     public function allProducts()

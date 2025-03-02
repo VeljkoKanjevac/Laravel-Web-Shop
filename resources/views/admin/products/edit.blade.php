@@ -12,7 +12,8 @@
 
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
-            <input type="text" name="name" value="{{$product->name}}" class="form-control" id="name" aria-describedby="emailHelp">
+            <input type="text" name="name" value="{{$product->name}}" class="form-control" id="name"
+                   aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
@@ -22,17 +23,20 @@
 
         <div class="mb-3">
             <label for="price" class="form-label">Price</label>
-            <input type="number" name="price" value="{{$product->price}}" class="form-control" id="price" aria-describedby="emailHelp">
+            <input type="number" name="price" value="{{$product->price}}" class="form-control" id="price"
+                   aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="stock" class="form-label">Stock</label><br>
-            <input type="text" name="stock" value="{{$product->stock}}" class="form-control" id="stock" aria-describedby="emailHelp">
+            <input type="text" name="stock" value="{{$product->stock}}" class="form-control" id="stock"
+                   aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
             <label for="image" class="form-label">Image URL</label>
-            <input type="text" name="image" value="{{$product->image}}" class="form-control" id="image" aria-describedby="emailHelp">
+            <input type="text" name="image" value="{{$product->image}}" class="form-control" id="image"
+                   aria-describedby="emailHelp">
         </div>
 
         <select name="category_id" class="form-select" aria-label="Choose product category">

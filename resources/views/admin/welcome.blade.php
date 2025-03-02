@@ -2,6 +2,6 @@
 
 @section("content")
 
-Dobrodosli. Vi ste administrator!
+    Dobrodosli. Vi ste administrator!
 
 @endsection
